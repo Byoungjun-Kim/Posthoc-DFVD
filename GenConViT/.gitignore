@@ -1,0 +1,11 @@
+weight/
+
+json_file/
+
+sample_prediction_data/
+
+sample_train_data/
+
+result/
+
+**/__pycache__/
