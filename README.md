@@ -1,3 +1,5 @@
+## Bibtex
+```bash
 @misc{wodajo2023deepfake,
       title={Deepfake Video Detection Using Generative Convolutional Vision Transformer}, 
       author={Deressa Wodajo and Solomon Atnafu and Zahid Akhtar},
@@ -6,3 +8,4 @@
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
+```
