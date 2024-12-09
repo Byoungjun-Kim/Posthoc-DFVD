@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Video Detector</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Fake Video Detector</h1>
+    <p>Analyze YouTube videos with AI to detect fake content with ease and accuracy.</p>
+  </header>
+  
+  <main>
+    <div class="card">
+      <h2>Enter YouTube Link</h2>
+      <div class="form-container">
+        <input id="videoLink" type="text" placeholder="Paste YouTube Video Link">
+        <button id="detectBtn">Analyze</button>
+      </div>
+
+      <div class="container">
+        <div id="videoContainer"></div>
+      </div>
+
+      <div id="result"></div>
+    </div>
+
+    <div class="info">
+      <h2>How It Works</h2>
+      <p>Powered by <a href="https://github.com/erprogs/GenConViT" target="_blank">GenConViT</a>, this tool analyzes selected video frames to calculate the probability of fake content while balancing speed and accuracy.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 Fake Video Detector | Built with 💡 by Your Team</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
