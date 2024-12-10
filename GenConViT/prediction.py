@@ -8,10 +8,52 @@ from model.config import load_config
 from pytubefix import YouTube
 import io
 import tempfile
+import mediapipe as mp
 
 config = load_config()
 print('CONFIG')
 print(config)
+
+
+def detect_faces_and_save_video(input_video_path):
+    # OpenCV Haar Cascade 얼굴 검출기 로드
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+    
+    # 원본 동영상 읽기
+    cap = cv2.VideoCapture(input_video_path)
+    if not cap.isOpened():
+        raise ValueError("Error: Cannot open video file.")
+
+    # 동영상 속성 가져오기
+    frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    fps = int(cap.get(cv2.CAP_PROP_FPS))
+    
+    # 임시 파일에 새로운 동영상 저장
+    with tempfile.NamedTemporaryFile(suffix=".mp4", delete=False) as temp_output:
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # MP4 코덱
+        out = cv2.VideoWriter(temp_output.name, fourcc, fps, (frame_width, frame_height))
+
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break  # 동영상 끝에 도달
+
+            # 얼굴 검출
+            gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            faces = face_cascade.detectMultiScale(gray_frame, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+
+            # 얼굴이 검출된 경우만 저장
+            if len(faces) > 0:
+                out.write(frame)
+
+        cap.release()
+        out.release()
+
+        print(f"Face-filtered video saved to: {temp_output.name}")
+        return temp_output.name
+
+
 
 def single_vid(
     ed_weight, vae_weight, path, net=None, fp16=False
@@ -24,7 +66,7 @@ def single_vid(
     model = load_genconvit(config, net, ed_weight, vae_weight, fp16)
 
     video = YouTube(path)
-    video_stream = video.streams.filter(res="360p", file_extension="mp4").first()
+    video_stream = video.streams.filter(progressive=True, file_extension="mp4").order_by("resolution").desc().first()
     buffer = io.BytesIO()
     video_stream.stream_to_buffer(buffer)
     buffer.seek(0)
@@ -32,11 +74,11 @@ def single_vid(
     with tempfile.NamedTemporaryFile(suffix=".mp4") as temp_file:
         temp_file.write(buffer.read())
         temp_file.flush()
-
+        face_video_path = detect_faces_and_save_video(temp_file.name)
         try:
             if is_video(temp_file.name):
                 result, accuracy, count, pred = predict(
-                    temp_file.name,
+                    face_video_path,
                     model,
                     fp16,
                     result,

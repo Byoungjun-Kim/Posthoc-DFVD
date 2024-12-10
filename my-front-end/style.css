@@ -1,124 +1,123 @@
 /* Reset styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffecd2, #fcb69f); /* 橙黄渐变背景 */
-    color: #333;
-    text-align: center;
-    line-height: 1.6;
-    padding: 20px;
-  }
-  
-  header {
-    margin-bottom: 20px;
-  }
-  
-  header h1 {
-    font-size: 2.5rem;
-    color: #333; /* 深灰标题 */
-    text-shadow: 1px 1px 5px rgba(255, 184, 159, 0.5); /* 柔和阴影 */
-  }
-  
-  header p {
-    font-size: 1.2rem;
-    color: #555; /* 中灰文字 */
-    margin-top: 10px;
-  }
-  
-  main .card {
-    background: #fff; /* 白色卡片 */
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 8px 15px rgba(255, 184, 159, 0.4); /* 温暖阴影 */
-  }
-  
-  main .card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .form-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-  }
-  
-  input {
-    padding: 10px;
-    font-size: 16px;
-    width: 70%;
-    border: 2px solid #f5a623; /* 橙色边框 */
-    border-radius: 5px;
-    outline: none;
-    transition: all 0.3s ease;
-  }
-  
-  input:focus {
-    border-color: #f39c12; /* 深橙色 */
-    box-shadow: 0 0 10px rgba(243, 156, 18, 0.5); /* 橙色阴影 */
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #f39c12; /* 橙色按钮 */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #e67e22; /* 深橙 */
-  }
-  
-  #result {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: #d35400; /* 橙红色 */
-  }
-  
-  .info {
-    margin-top: 40px;
-    max-width: 500px;
-    margin: 40px auto;
-    background: rgba(255, 255, 255, 0.9); /* 半透明白 */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 8px 15px rgba(255, 184, 159, 0.3); /* 温暖阴影 */
-  }
-  
-  .info h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .info p {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 10px;
-  }
-  
-  .info a {
-    color: #f39c12;
-    text-decoration: none;
-  }
-  
-  footer {
-    margin-top: 30px;
-    padding: 10px;
-    color: #333;
-    font-size: 0.9rem;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f); /* 橙黄渐变背景 */
+  color: #333;
+  text-align: center;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #333; /* 深灰标题 */
+  text-shadow: 1px 1px 5px rgba(255, 184, 159, 0.5); /* 柔和阴影 */
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #555; /* 中灰文字 */
+  margin-top: 10px;
+}
+
+main .card {
+  background: #fff; /* 白色卡片 */
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(255, 184, 159, 0.4); /* 温暖阴影 */
+}
+
+main .card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  width: 70%;
+  border: 2px solid #f5a623; /* 橙色边框 */
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #f39c12; /* 深橙色 */
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.5); /* 橙色阴影 */
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #f39c12; /* 橙色按钮 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e67e22; /* 深橙 */
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #d35400; /* 橙红色 */
+}
+
+.info {
+  margin-top: 40px;
+  max-width: 500px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.9); /* 半透明白 */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(255, 184, 159, 0.3); /* 温暖阴影 */
+}
+
+.info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.info a {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 30px;
+  padding: 10px;
+  color: #333;
+  font-size: 0.9rem;
+}

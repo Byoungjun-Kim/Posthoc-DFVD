@@ -91,8 +91,9 @@ def real_or_fake(prediction):
 
 def extract_frames(video_file):
     vr = VideoReader(video_file, ctx=cpu(0))
+    step_size = max(1, len(vr) // 15)
     return vr.get_batch(
-        list(range(0, len(vr), 30))[:30]
+        list(range(0, len(vr), step_size))[:15]
     ).asnumpy()  # seek frames with step_size
 
 
