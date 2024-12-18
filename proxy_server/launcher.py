@@ -10,9 +10,9 @@ CORS(app)
 def handle_request():
     # 외부에서 받은 요청 데이터
     data = request.get_json()
-
+    ip_address = ''
     # 클라우드 VM으로 요청 전달
-    vm_url = "http://143.248.48.95:5000/fake_prob"
+    vm_url = f"http://{ip_address}/fake_prob"
     try:
         vm_response = requests.get(vm_url, json=data)
         vm_response_data = vm_response.json()
